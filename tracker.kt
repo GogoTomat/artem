@@ -5,6 +5,7 @@ fun main() {
     var balance = 0.0
     val history = mutableListOf<String>()
 
+
     while (true) {
         println("Menu:")
         println("1. Show current balance")
@@ -31,7 +32,7 @@ fun main() {
                 }
                     
                 }
-                catch(Exception e) {
+                catch(e: Exception) {
                     println("Error: input a number")
                 }
                 
@@ -48,7 +49,7 @@ fun main() {
                         println("Income successfully added.")
                     } 
                 }
-                catch(Exception e) {
+                catch(e: Exception) {
                     println("Error: input a number")
                 }
                 
@@ -80,7 +81,7 @@ fun main() {
                 println("Quit.")
                 return
             }
-            else -> println("Error: unknown program.")
+            else -> println("Error: unknown command.")
         }
     }
 }
