@@ -20,7 +20,8 @@ fun main() {
             1 -> println("Current balance: $balance")
             2 -> {
                 print("Enter Expense: ")
-                val expense = scanner.nextDouble()
+                try {
+                    val expense = scanner.nextDouble()
                 if (expense < 0) {
                     println("Error: Expense can't be less than 0.")
                 } else {
@@ -28,21 +29,33 @@ fun main() {
                     history.add("Expense: -$expense")
                     println("Expense successfully added.")
                 }
+                    
+                }
+                catch(Exception e) {
+                    println("Error: input a number")
+                }
+                
             }
             3 -> {
                 print("Enter income: ")
                 val income = scanner.nextDouble()
-                if (income < 0) {
-                    println("Error: Income can't be less than 0.")
-                } else {
-                    balance += income
-                    history.add("Income: +$income")
-                    println("Income successfully added.")
+                try {
+                    if (income < 0) {
+                        println("Error: Income can't be less than 0.")
+                    } else {
+                        balance += income
+                        history.add("Income: +$income")
+                        println("Income successfully added.")
+                    } 
                 }
+                catch(Exception e) {
+                    println("Error: input a number")
+                }
+                
             }
             4 -> {
                 if (history.isEmpty()) {
-                    println("Erorr: History is empty.")
+                    println("Error: History is empty.")
                 } else {
                     val lastOperation = history.removeAt(history.size - 1)
                     if (lastOperation.startsWith("Expense")) {
